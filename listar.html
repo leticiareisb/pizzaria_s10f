@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Usuários</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Listar Usuários</h1>
+        <div id="mensagemErro" class="alert alert-danger d-none"></div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Data de Criação</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaUsuarios">
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="visualizarUsuarioModal" tabindex="-1" aria-labelledby="visualizarUsuarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="visualizarUsuarioModalLabel">Visualizar Usuário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Nome:</strong> <span id="usuarioNome"></span></p>
+                    <p><strong>Email:</strong> <span id="usuarioEmail"></span></p>
+                    <p><strong>Data de Criação:</strong> <span id="usuarioDataCriacao"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editarUsuarioModal" tabindex="-1" aria-labelledby="editarUsuarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editarUsuarioModalLabel">Editar Usuário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editarUsuarioForm">
+                        <div class="mb-3">
+                            <label for="editarNome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="editarNome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editarEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="editarEmail" required>
+                        </div>
+                        <input type="hidden" id="userId">
+                        <div id="mensagemEditarUsuario" class="alert alert-danger d-none"></div>
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="listar.js"></script>
+</body>
+
+</html>
